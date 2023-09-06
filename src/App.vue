@@ -5,8 +5,15 @@
       <h1> My Friends</h1>
      </header>
       <ul>
-        <ContactFriends  v-for="friend in friends" :key="friend.id" :name="friend.name" 
-         :phone="friend.phone" :email= "friend.email" v-bind:isFavirate='true'  />
+        <ContactFriends 
+         v-for="friend in friends" 
+        :key="friend.id"
+         :name="friend.name" 
+          :id="friend.id"
+         :phone="friend.phone"
+          :email= "friend.email"
+           v-bind:isFavirate='friend.isFavirate' 
+            @toggle-favirate="toggleFavirateStatus" />
          
         
           
@@ -29,20 +36,42 @@ export default {
           name: "Manuel lopez",
           phone: "0936116584",
           email: "Manuel@gmail.com",
+          isFavirate:true,
         },
         {
           id: "Julia",
           name: " Julia Jons",
           phone: "09361165878",
           email: "Julia@gmail.com",
+          isFavirate:false,
         },
       ],
     };
   },
 
-  mounted() {},
+  mounted() {
 
-  methods: {},
+
+   
+
+
+  },
+
+  methods: {
+
+    toggleFavirateStatus(friendId) {
+
+    const identifyFriend=this.friends.find((friend)=>friend.id===friendId);
+     identifyFriend.isFavirate=!identifyFriend.isFavirate;
+    
+
+   }
+
+
+
+
+
+  },
 };
 </script>
 

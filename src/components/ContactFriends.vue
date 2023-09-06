@@ -1,7 +1,7 @@
 <template>
   
     <li>
-      <h2>{{ name }}  {{ Favirate ? '(Favirate)': '' }}</h2>
+      <h2>{{ name }}  {{ isFavirate ? '(Favirate)': '' }}</h2>
       <button @click="toggleFavirate">toggle Favirate</button>
       <button @click="toggleDetails">{{datailsAreVisible ? 'Hide' : 'Show '}} Details</button>
       <ul v-if="datailsAreVisible">
@@ -22,7 +22,7 @@ export default {
       
       datailsAreVisible:false,
 
-      Favirate:this.isFavirate,
+     
     
       
     };
@@ -31,6 +31,17 @@ export default {
 
 
   props:{
+
+
+
+    id:{
+
+
+      type:String,
+
+        required:true,
+
+    },
 
     name:{
 
@@ -57,8 +68,7 @@ export default {
         //   return value==='1' || value==="0"; // validator  say if 0 or 1 excuted else warning in console
 
         // }
-        
-
+    
     
     }
 
@@ -86,6 +96,7 @@ this.datailsAreVisible=!this.datailsAreVisible;
 
 
     },
+
     toggleFavirate(){
 
       // if(this.Favirate==='1'){
@@ -98,7 +109,7 @@ this.datailsAreVisible=!this.datailsAreVisible;
 
 
       // }
-      this.Favirate=!this.Favirate
+      this.$emit('toggle-favirate',this.id);// always kebab case
 
 
     }
