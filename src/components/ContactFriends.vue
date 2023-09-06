@@ -73,6 +73,24 @@ export default {
     }
 
   },
+
+
+
+  // emits:['toggle-favirate']
+  emits:{
+
+    'toggle-favirate':function(id){
+      if(id){
+
+        return true
+
+      }
+      else{
+        console.warn('you missing the id ');
+        return false
+      }
+    }
+  },
    
    
     
