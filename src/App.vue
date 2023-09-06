@@ -4,7 +4,7 @@
      <header>
       <h1> My Friends</h1>
      </header>
-     <NewFriend/>
+     <NewFriend @addContact="addContact"/>
       <ul>
         <ContactFriends 
          v-for="friend in friends" 
@@ -66,7 +66,26 @@ export default {
      identifyFriend.isFavirate=!identifyFriend.isFavirate;
     
 
+   },
+
+   addContact(name,phone,email ){
+
+    const newFriendContact={
+
+      id:new Date().toISOString,
+      name:name,
+      phone:phone,
+      email:email,
+      isFavirate:false,
+
+
+    }
+    this.friends.push(newFriendContact)
+
+
+
    }
+   
 
 
 
