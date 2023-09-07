@@ -3,17 +3,17 @@
         
         <form action="" @submit.prevent="submitData">
          <div>
-            <label >name</label>
+            <label >name:</label>
             <input type="text" v-model="enteredName"  />
         </div>
 
         <div>
-            <label >phone</label>
+            <label >phone:</label>
             <input type="tel" v-model="enteredPhone" />
         </div>
         
         <div>
-            <label >email </label>
+            <label >email: </label>
             <input type="email "  v-model="enteredEmail" />
         </div>
 

@@ -8,6 +8,7 @@
         <li><strong>Phone:</strong>{{ phone }}</li>
         <li><strong>Email:</strong>{{ email }}</li>
       </ul>
+      <button @click="deleteFriend">Delete</button>
     </li>
 
   
@@ -76,21 +77,21 @@ export default {
 
 
 
-  // emits:['toggle-favirate']
-  emits:{
+   emits:['toggle-favirate', 'delete-friend'],
+  // emits:{
 
-    'toggle-favirate':function(id){
-      if(id){
+  //   'toggle-favirate':function(id){
+  //     if(id){
 
-        return true
+  //       return true
 
-      }
-      else{
-        console.warn('you missing the id ');
-        return false
-      }
-    }
-  },
+  //     }
+  //     else{
+  //       console.warn('you missing the id ');
+  //       return false
+  //     }
+  //   }
+  // },
    
    
     
@@ -130,8 +131,17 @@ this.datailsAreVisible=!this.datailsAreVisible;
       this.$emit('toggle-favirate',this.id);// always kebab case
 
 
-    }
+    },
     
+
+
+    deleteFriend(){
+
+      this.$emit('delete-friend',this.id)
+
+    }
+
+
   },
 };
 </script>

@@ -14,7 +14,7 @@
          :phone="friend.phone"
           :email= "friend.email"
            v-bind:isFavirate='friend.isFavirate' 
-            @toggle-favirate="toggleFavirateStatus" />
+            @toggle-favirate="toggleFavirateStatus" @deleteFriend="deleteContact" />
          
         
           
@@ -84,11 +84,17 @@ export default {
 
 
 
-   }
+   },
    
 
 
+   deleteContact(friendId){
 
+
+    this.friends=this.friends.filter((friend)=>friend.id!==friendId)
+
+
+   }
 
 
   },
